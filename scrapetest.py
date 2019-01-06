@@ -104,6 +104,12 @@ print(city)
 
 
 # SELENIUM
+
+browser = webdriver.Chrome('/Applications/chromedriver')
+browser.get(url)
+zipcode = browser.execute_script("return tealium_json;")
+print('zipcode ', zipcode['zipcode'])
+
 '''
 browser = webdriver.Chrome('/Applications/chromedriver')
 #browser.get('https://www2.tori.fi')
