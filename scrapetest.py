@@ -77,21 +77,6 @@ print(city)
 
 # --- Location (zip code) ---
 
-'''
-jsonpattern = re.compile(r"var tealium_json = (.*);", re.MULTILINE | re.DOTALL)
-script = soup.find("script", text=jsonpattern)
-
-json_string = jsonpattern.search(script.text).group(1)
-
-try:
-	json_data = json.loads(json_string)
-except ValueError:
-	print("Invalid JSON ", json_string)
-else:
-	zipcode = json_data['zipcode']
-	print('Zipcode: ', zipcode)
-'''
-
 zippattern = re.compile(r'tori\.banner\.feedObj\["zipcode"\] = "(.*)";')
 zipdata = soup.find("script", text=zippattern)
 zipcode = zippattern.search(zipdata.text).group(1)
