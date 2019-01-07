@@ -68,48 +68,27 @@ if subcategory:
 adtype = soup.find('tr', {'itemprop' : 'offers'}).find('td', {'class' : 'value'}).text
 print(adtype)
 
-# NEXT: City
+# --- City ---
 citydata = soup.find("meta",  property="og:title")
 print(citydata)
 city = re.search('\,\s(.*)" property', str(citydata)).group(1)
 print(city)
 
-
-# NEED
-# - Location (zip code) - could be an input parameter / constant / whatever
-# - Photos
-# - Ad type
-'''
-	<!-- Ad params -->
-	<div class="params">
-		<div class="group-title-container" >
-			<table class="tech_data">
-				<tr itemprop="offers" itemscope itemtype="http://schema.org/Offer">
-					<td class="topic">Ilmoitustyyppi:</td>
-<td class="value">Myydään</td>
-<td class="space"></td>
-<td class="topic">Ilmoitus jätetty:</td>
-<td class="value">28 elokuuta 22:35</td>
-
-					
-					
-				</tr>
-				
-			</table>
-		</div>
-		
-	</div>
-'''
-
-
-
-# SELENIUM
+# --- Location (zip code) ---
 
 browser = webdriver.Chrome('/Applications/chromedriver')
 browser.get(url)
 zipcode = browser.execute_script("return tealium_json;")
 print('zipcode ', zipcode['zipcode'])
 
+
+
+# NEED
+# - Photos
+# - Ad type
+
+
+# SELENIUM
 '''
 browser = webdriver.Chrome('/Applications/chromedriver')
 #browser.get('https://www2.tori.fi')
